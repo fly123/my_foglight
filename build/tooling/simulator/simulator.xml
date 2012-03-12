@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<simulator-data xmlns="urn:X-quest.com:glue/simulator/1.2" xmlns:ns2="urn:X-quest.com:glue/simulator/1.1" xmlns:ns3="urn:X-quest.com:glue/simulator/1.0" package="URLMonitorAgent" version="1.0.0" config-namespace="URLMonitorAgent" build-id="local-build-20120312-1428">
+    <sim-agent name="URLMonitorAgent">
+        <table name="AgentRoot" className="com.quest.agent.urlmonitor.samples.AgentRoot" isSampled="true">
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <property name="instances" type="MonitoredURL" isComplex="true" isMany="true"/>
+        </table>
+        <table name="MonitoredURL" className="com.quest.agent.urlmonitor.samples.MonitoredURL" isSampled="false">
+            <identity name="urlPath" type="URLPath" isComplex="true"/>
+            <identity name="urlServerInstance" type="URLServerInstance" isComplex="true"/>
+            <property name="monitoredHost" type="Host" isComplex="true"/>
+            <property name="monitoringAgent" type="Agent" isComplex="true"/>
+            <property value="name" name="name" type="java.lang.String"/>
+            <metric unit="percent" name="availability" type="java.lang.Double"/>
+            <metric unit="millisecond" name="pageGetTime" type="java.lang.Double"/>
+            <metric unit="millisecond" name="responseTime" type="java.lang.Double"/>
+            <metric name="errorCode" type="java.lang.Double"/>
+        </table>
+        <table name="URLPath" className="com.quest.agent.urlmonitor.samples.URLPath" isSampled="false">
+            <identity name="path" type="java.lang.String" isComplex="false"/>
+            <identity name="protocol" type="java.lang.String" isComplex="false"/>
+            <property value="name" name="name" type="java.lang.String"/>
+            <property name="monitoringAgent" type="Agent" isComplex="true"/>
+        </table>
+        <table name="URLServerInstance" className="com.quest.agent.urlmonitor.samples.URLServerInstance" isSampled="false">
+            <identity name="host" type="Host" isComplex="true"/>
+            <identity name="port" type="java.lang.Integer" isComplex="false"/>
+            <property value="name" name="name" type="java.lang.String"/>
+            <property name="monitoringAgent" type="Agent" isComplex="true"/>
+        </table>
+        <table name="LogicalDisk" className="com.quest.agent.urlmonitor.samples.LogicalDisk" isSampled="false">
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <identity name="host" type="Host" isComplex="true"/>
+        </table>
+        <table name="IPAddress" className="com.quest.agent.urlmonitor.samples.IPAddress" isSampled="false">
+            <identity name="address" type="java.lang.String" isComplex="false"/>
+            <property name="originatingPaths" type="NetworkPath" isComplex="true" isMany="true"/>
+            <property name="terminatingPaths" type="NetworkPath" isComplex="true" isMany="true"/>
+            <property name="host" type="Host" isComplex="true"/>
+        </table>
+        <table name="Memory" className="com.quest.agent.urlmonitor.samples.Memory" isSampled="false">
+            <identity name="host" type="Host" isComplex="true"/>
+            <property value="0" name="totalMemory" type="java.lang.Long"/>
+            <observation name="topMemoryProcesses" type="HostTopMemoryProcessObservation" isComplex="true" isMany="true"/>
+            <metric unit="megabyte" name="capacity" type="java.lang.Double"/>
+            <metric unit="megabyte" name="consumed" type="java.lang.Double"/>
+            <metric unit="percent" name="utilization" type="java.lang.Double"/>
+            <metric unit="count/second" name="pageInRate" type="java.lang.Double"/>
+            <metric unit="count/second" name="pageOutRate" type="java.lang.Double"/>
+            <metric unit="megabyte" name="virtualMemorySize" type="java.lang.Double"/>
+            <metric unit="megabyte" name="nonPagedKernelMemory" type="java.lang.Double"/>
+            <metric unit="megabyte" name="pagedKernelMemory" type="java.lang.Double"/>
+            <metric unit="megabyte" name="fileSystemCache" type="java.lang.Double"/>
+        </table>
+        <table name="OperatingSystem" className="com.quest.agent.urlmonitor.samples.OperatingSystem" isSampled="false">
+            <identity name="host" type="Host" isComplex="true"/>
+            <property value="type" name="type" type="java.lang.String"/>
+            <property value="name" name="name" type="java.lang.String"/>
+            <property value="architecture" name="architecture" type="java.lang.String"/>
+            <property value="version" name="version" type="java.lang.String"/>
+            <property value="servicePackMajorVersion" name="servicePackMajorVersion" type="java.lang.String"/>
+            <property value="servicePackMinorVersion" name="servicePackMinorVersion" type="java.lang.String"/>
+            <property value="buildNumber" name="buildNumber" type="java.lang.String"/>
+            <property name="processes" type="HostProcess" isComplex="true" isMany="true"/>
+            <property name="services" type="HostService" isComplex="true" isMany="true"/>
+        </table>
+        <table name="HostTopMemoryProcessEntry" className="com.quest.agent.urlmonitor.samples.HostTopMemoryProcessEntry" isSampled="false">
+            <identity name="processId" type="java.lang.String" isComplex="false"/>
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <property value="0" name="residentSetSize" type="java.lang.Float"/>
+            <property value="0" name="virtualSetSize" type="java.lang.Float"/>
+        </table>
+        <table name="Agent" className="com.quest.agent.urlmonitor.samples.Agent" isSampled="false">
+            <property value="name" name="name" type="java.lang.String"/>
+            <property value="agentVersion" name="agentVersion" type="java.lang.String"/>
+            <property value="agentName" name="agentName" type="java.lang.String"/>
+            <property value="agentInstance" name="agentInstance" type="java.lang.String"/>
+            <property value="build" name="build" type="java.lang.String"/>
+            <property value="cpuCount" name="cpuCount" type="java.lang.String"/>
+            <property value="hostName" name="hostName" type="java.lang.String"/>
+            <property value="type" name="type" type="java.lang.String"/>
+            <property name="monitoredHost" type="Host" isComplex="true"/>
+            <observation values="Unknown,Stopped,Starting,Stopping,Running,Collecting data,Running but not collecting data,Failed to start,Failed to start data collection" name="runningStateObservation" type="java.lang.String" isComplex="false"/>
+        </table>
+        <table name="HostTopProcessEntry" className="com.quest.agent.urlmonitor.samples.HostTopProcessEntry" isSampled="false">
+            <identity name="processId" type="java.lang.String" isComplex="false"/>
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <property value="userName" name="userName" type="java.lang.String"/>
+            <property value="command" name="command" type="java.lang.String"/>
+        </table>
+        <table name="HostTopMemoryProcessTrend" className="com.quest.agent.urlmonitor.samples.HostTopMemoryProcessTrend" isSampled="false">
+            <identity name="processId" type="java.lang.String" isComplex="false"/>
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+        </table>
+        <table name="Processor" className="com.quest.agent.urlmonitor.samples.Processor" isSampled="false">
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <identity name="host" type="Host" isComplex="true"/>
+            <property value="processorType" name="processorType" type="java.lang.String"/>
+            <property value="stepping" name="stepping" type="java.lang.String"/>
+            <metric unit="percent" name="percentUserTime" type="java.lang.Double"/>
+            <metric unit="percent" name="percentSystemTime" type="java.lang.Double"/>
+            <metric unit="percent" name="percentIdleTime" type="java.lang.Double"/>
+            <metric unit="percent" name="utilization" type="java.lang.Double"/>
+            <metric unit="count" name="usedHz" type="java.lang.Double"/>
+            <metric unit="count" name="totalHz" type="java.lang.Double"/>
+        </table>
+        <table name="HostTopIOProcessEntry" className="com.quest.agent.urlmonitor.samples.HostTopIOProcessEntry" isSampled="false">
+            <identity name="processId" type="java.lang.String" isComplex="false"/>
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <property value="0" name="ioRate" type="java.lang.Float"/>
+        </table>
+        <table name="HostProcessInstance" className="com.quest.agent.urlmonitor.samples.HostProcessInstance" isSampled="false">
+            <identity name="pid" type="java.lang.String" isComplex="false"/>
+            <identity name="process" type="HostProcess" isComplex="true"/>
+            <property value="parentPid" name="parentPid" type="java.lang.String"/>
+            <property value="0" name="percentProcessorTime" type="java.lang.Float"/>
+            <property value="0" name="totalProcessorTime" type="java.lang.Double"/>
+            <property value="0" name="percentMemory" type="java.lang.Float"/>
+            <property value="0" name="virtualSize" type="java.lang.Double"/>
+            <property value="0" name="workingSetSize" type="java.lang.Double"/>
+            <property value="0" name="swapSize" type="java.lang.Double"/>
+            <property value="0" name="pageFaults" type="java.lang.Float"/>
+            <property value="0" name="dataRead" type="java.lang.Double"/>
+            <property value="0" name="dataWritten" type="java.lang.Double"/>
+            <property value="0" name="dataOther" type="java.lang.Double"/>
+            <property value="0" name="operationsRead" type="java.lang.Double"/>
+            <property value="0" name="operationsWrite" type="java.lang.Double"/>
+            <property value="0" name="operationsOther" type="java.lang.Double"/>
+        </table>
+        <table name="HostComponent" className="com.quest.agent.urlmonitor.samples.HostComponent" isSampled="false">
+            <identity name="host" type="Host" isComplex="true"/>
+        </table>
+        <table name="HostCPUs" className="com.quest.agent.urlmonitor.samples.HostCPUs" isSampled="false">
+            <identity name="host" type="Host" isComplex="true"/>
+            <property name="processors" type="Processor" isComplex="true" isMany="true"/>
+            <observation name="topCPUProcesses" type="HostTopCPUProcessObservation" isComplex="true" isMany="true"/>
+            <metric unit="percent" name="percentUserTime" type="java.lang.Double"/>
+            <metric unit="percent" name="percentSystemTime" type="java.lang.Double"/>
+            <metric unit="percent" name="percentIdleTime" type="java.lang.Double"/>
+            <metric unit="percent" name="utilization" type="java.lang.Double"/>
+            <metric unit="count" name="usedHz" type="java.lang.Double"/>
+            <metric unit="count" name="totalHz" type="java.lang.Double"/>
+        </table>
+        <table name="NetworkInterface" className="com.quest.agent.urlmonitor.samples.NetworkInterface" isSampled="false">
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <identity name="host" type="Host" isComplex="true"/>
+            <property name="ipAddress" type="IPAddress" isComplex="true"/>
+            <property value="macAddress" name="macAddress" type="java.lang.String"/>
+            <property value="0" name="interfaceIndex" type="java.lang.Integer"/>
+            <property value="0" name="portNumber" type="java.lang.Integer"/>
+            <property value="interfaceType" name="interfaceType" type="java.lang.String"/>
+            <property value="netmask" name="netmask" type="java.lang.String"/>
+            <property value="true" name="isLayer2" type="java.lang.Boolean"/>
+            <property value="networkSegment" name="networkSegment" type="java.lang.String"/>
+            <property value="0" name="layer2Segment" type="java.lang.Integer"/>
+            <property value="Inactive,Active" name="discoveryStatus" type="com.quest.agent.urlmonitor.samples.HostDiscoveryStatus" isComplex="false"/>
+            <property name="networks" type="HostModelNetwork" isComplex="true" isMany="true"/>
+            <metric unit="bit/second" name="bandwidth" type="java.lang.Double"/>
+            <metric unit="percent" name="utilization" type="java.lang.Double"/>
+            <metric unit="count/second" name="packetsSent" type="java.lang.Double"/>
+            <metric unit="count/second" name="packetsReceived" type="java.lang.Double"/>
+            <metric unit="bit/second" name="sendRate" type="java.lang.Double"/>
+            <metric unit="bit/second" name="receiveRate" type="java.lang.Double"/>
+            <metric unit="count" name="inboundPacketsDropped" type="java.lang.Double"/>
+            <metric unit="count" name="outboundPacketsDropped" type="java.lang.Double"/>
+            <metric unit="count" name="inboundErrors" type="java.lang.Double"/>
+            <metric unit="count" name="outboundErrors" type="java.lang.Double"/>
+            <metric unit="count" name="outputQueueLength" type="java.lang.Double"/>
+        </table>
+        <table name="HostStorage" className="com.quest.agent.urlmonitor.samples.HostStorage" isSampled="false">
+            <identity name="host" type="Host" isComplex="true"/>
+            <property name="physicalDisks" type="PhysicalDisk" isComplex="true" isMany="true"/>
+            <property name="logicalDisks" type="LogicalDisk" isComplex="true" isMany="true"/>
+            <observation name="topIOProcesses" type="HostTopIOProcessObservation" isComplex="true" isMany="true"/>
+            <metric unit="percent" name="diskUtilization" type="java.lang.Double"/>
+            <metric unit="count/second" name="diskReads" type="java.lang.Double"/>
+            <metric unit="count/second" name="diskWrites" type="java.lang.Double"/>
+            <metric unit="kilobyte/second" name="diskBytesRead" type="java.lang.Double"/>
+            <metric unit="kilobyte/second" name="diskBytesWritten" type="java.lang.Double"/>
+            <metric unit="kilobyte/second" name="diskTransferRate" type="java.lang.Double"/>
+            <metric unit="megabyte" name="spaceUsed" type="java.lang.Double"/>
+            <metric unit="megabyte" name="spaceAvailable" type="java.lang.Double"/>
+        </table>
+        <table name="HostModelNetwork" className="com.quest.agent.urlmonitor.samples.HostModelNetwork" isSampled="false">
+            <identity name="networkId" type="java.lang.String" isComplex="false"/>
+        </table>
+        <table name="PhysicalDisk" className="com.quest.agent.urlmonitor.samples.PhysicalDisk" isSampled="false">
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <identity name="host" type="Host" isComplex="true"/>
+        </table>
+        <table name="HostTopCPUProcessEntry" className="com.quest.agent.urlmonitor.samples.HostTopCPUProcessEntry" isSampled="false">
+            <identity name="processId" type="java.lang.String" isComplex="false"/>
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <property value="0" name="cpuUsage" type="java.lang.Float"/>
+        </table>
+        <table name="Host" className="com.quest.agent.urlmonitor.samples.Host" isSampled="false">
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <property value="systemId" name="systemId" type="java.lang.String"/>
+            <property name="os" type="OperatingSystem" isComplex="true"/>
+            <property name="memory" type="Memory" isComplex="true"/>
+            <property name="cpus" type="HostCPUs" isComplex="true"/>
+            <property name="storage" type="HostStorage" isComplex="true"/>
+            <property name="network" type="HostNetwork" isComplex="true"/>
+            <property name="ipAddresses" type="IPAddress" isComplex="true" isMany="true"/>
+            <property name="running" type="TopologyObject" isComplex="true" isMany="true" abstract-type="com.quest.agent.urlmonitor.samples.TopologyObject"/>
+            <property name="detail" type="TopologyObject" isComplex="true" isMany="true" abstract-type="com.quest.agent.urlmonitor.samples.TopologyObject"/>
+            <property name="agents" type="Agent" isComplex="true" isMany="true"/>
+            <property value="true" name="isHidden" type="java.lang.Boolean"/>
+            <property value="localName" name="localName" type="java.lang.String"/>
+            <property value="domainName" name="domainName" type="java.lang.String"/>
+            <property name="primaryIpAddress" type="IPAddress" isComplex="true"/>
+            <property value="vendor" name="vendor" type="java.lang.String"/>
+            <property value="sysObjectId" name="sysObjectId" type="java.lang.String"/>
+            <property value="true" name="isGateway" type="java.lang.Boolean"/>
+            <property value="true" name="isBridge" type="java.lang.Boolean"/>
+            <property value="Inactive,Active" name="discoveryStatus" type="com.quest.agent.urlmonitor.samples.HostDiscoveryStatus" isComplex="false"/>
+            <property name="virtualHosts" type="Host" isComplex="true" isMany="true"/>
+            <property name="parentHost" type="Host" isComplex="true"/>
+            <metric name="virtualHostCount" type="java.lang.Double"/>
+            <metric unit="count" name="numProcesses" type="java.lang.Double"/>
+            <metric unit="count" name="runQueueLength" type="java.lang.Double"/>
+            <metric unit="count/second" name="interrupts" type="java.lang.Double"/>
+            <metric unit="count/second" name="contextSwitches" type="java.lang.Double"/>
+            <metric unit="percent" name="availablePagingSpace" type="java.lang.Double"/>
+        </table>
+        <table name="HostTopIOProcessTrend" className="com.quest.agent.urlmonitor.samples.HostTopIOProcessTrend" isSampled="false">
+            <identity name="processId" type="java.lang.String" isComplex="false"/>
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+        </table>
+        <table name="HostService" className="com.quest.agent.urlmonitor.samples.HostService" isSampled="false">
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <identity name="host" type="Host" isComplex="true"/>
+            <property value="displayName" name="displayName" type="java.lang.String"/>
+            <property name="process" type="HostProcess" isComplex="true"/>
+            <observation values="Stopped,Start Pending,Stop Pending,Running,Continue Pending,Pause Pending,Paused,Unknown" name="state" type="java.lang.String" isComplex="false"/>
+            <observation name="pid" type="java.lang.String"/>
+        </table>
+        <table name="CollectionModelInstance" className="com.quest.agent.urlmonitor.samples.CollectionModelInstance" isSampled="false"/>
+        <table name="HostTopCPUProcessTrend" className="com.quest.agent.urlmonitor.samples.HostTopCPUProcessTrend" isSampled="false">
+            <identity name="processId" type="java.lang.String" isComplex="false"/>
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+        </table>
+        <table name="NetworkPath" className="com.quest.agent.urlmonitor.samples.NetworkPath" isSampled="false">
+            <identity name="source" type="IPAddress" isComplex="true"/>
+            <identity name="destination" type="IPAddress" isComplex="true"/>
+        </table>
+        <table name="HostNetwork" className="com.quest.agent.urlmonitor.samples.HostNetwork" isSampled="false">
+            <identity name="host" type="Host" isComplex="true"/>
+            <property name="interfaces" type="NetworkInterface" isComplex="true" isMany="true"/>
+            <metric unit="percent" name="utilization" type="java.lang.Double"/>
+            <metric unit="count/second" name="packetsSent" type="java.lang.Double"/>
+            <metric unit="count/second" name="packetsReceived" type="java.lang.Double"/>
+            <metric unit="bit/second" name="sendRate" type="java.lang.Double"/>
+            <metric unit="bit/second" name="receiveRate" type="java.lang.Double"/>
+            <metric unit="bit/second" name="transferRate" type="java.lang.Double"/>
+        </table>
+        <table name="HostProcess" className="com.quest.agent.urlmonitor.samples.HostProcess" isSampled="false">
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <identity name="os" type="OperatingSystem" isComplex="true"/>
+            <observation name="instances" type="HostProcessInstanceListObservation" isComplex="true" isMany="true"/>
+            <metric unit="percent" name="percentProcessorTime" type="java.lang.Double"/>
+            <metric unit="second" name="totalProcessorTime" type="java.lang.Double"/>
+            <metric unit="percent" name="percentMemory" type="java.lang.Double"/>
+            <metric unit="kilobyte" name="virtualSize" type="java.lang.Double"/>
+            <metric unit="kilobyte" name="workingSetSize" type="java.lang.Double"/>
+            <metric unit="kilobyte" name="swapSize" type="java.lang.Double"/>
+            <metric unit="count/second" name="pageFaults" type="java.lang.Double"/>
+            <metric unit="byte/second" name="dataRead" type="java.lang.Double"/>
+            <metric unit="byte/second" name="dataWritten" type="java.lang.Double"/>
+            <metric unit="byte/second" name="dataOther" type="java.lang.Double"/>
+            <metric unit="byte/second" name="dataTransferRate" type="java.lang.Double"/>
+            <metric unit="count/second" name="operationsRead" type="java.lang.Double"/>
+            <metric unit="count/second" name="operationsWrite" type="java.lang.Double"/>
+            <metric unit="count/second" name="operationsOther" type="java.lang.Double"/>
+        </table>
+        <table name="HostBaseObject" className="com.quest.agent.urlmonitor.samples.HostBaseObject" isSampled="false">
+            <property name="detail" type="TopologyObject" isComplex="true" isMany="true" abstract-type="com.quest.agent.urlmonitor.samples.TopologyObject"/>
+            <property value="name" name="name" type="java.lang.String"/>
+            <property name="monitoringAgent" type="Agent" isComplex="true"/>
+        </table>
+        <table name="SecondaryStorage" className="com.quest.agent.urlmonitor.samples.SecondaryStorage" isSampled="false">
+            <identity name="name" type="java.lang.String" isComplex="false"/>
+            <identity name="host" type="Host" isComplex="true"/>
+            <metric unit="percent" name="utilization" type="java.lang.Double"/>
+            <metric unit="count/second" name="reads" type="java.lang.Double"/>
+            <metric unit="count/second" name="writes" type="java.lang.Double"/>
+            <metric unit="kilobyte/second" name="bytesRead" type="java.lang.Double"/>
+            <metric unit="kilobyte/second" name="bytesWritten" type="java.lang.Double"/>
+            <metric unit="millisecond" name="averageReadTime" type="java.lang.Double"/>
+            <metric unit="millisecond" name="averageWriteTime" type="java.lang.Double"/>
+            <metric unit="millisecond" name="averageTransferTime" type="java.lang.Double"/>
+            <metric unit="count" name="queueLength" type="java.lang.Double"/>
+            <metric unit="megabyte" name="spaceUsed" type="java.lang.Double"/>
+            <metric unit="megabyte" name="spaceAvailable" type="java.lang.Double"/>
+            <metric unit="megabyte" name="totalSpace" type="java.lang.Double"/>
+            <metric unit="percent" name="capacityUsed" type="java.lang.Double"/>
+            <metric unit="percent" name="capacityAvailable" type="java.lang.Double"/>
+        </table>
+        <table name="TopologyEdge" className="com.quest.agent.urlmonitor.samples.TopologyEdge" isSampled="false">
+            <property value="name" name="name" type="java.lang.String"/>
+            <property name="monitoringAgent" type="Agent" isComplex="true"/>
+        </table>
+        <table name="DataObject" className="com.quest.agent.urlmonitor.samples.DataObject" isSampled="false">
+            <property value="uniqueId" name="uniqueId" type="java.lang.String"/>
+        </table>
+        <table name="Object" className="com.quest.agent.urlmonitor.samples.Object" isSampled="false">
+            <property value="name" name="name" type="java.lang.String"/>
+            <property name="monitoringAgent" type="Agent" isComplex="true"/>
+        </table>
+    </sim-agent>
+</simulator-data>

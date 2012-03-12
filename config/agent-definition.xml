@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2012 Quest Software, Inc.
+  ALL RIGHTS RESERVED.
+
+  This software is the confidential and proprietary information of
+  Quest Software Inc. ("Confidential Information").  You shall not
+  disclose such Confidential Information and shall use it only in
+  accordance with the terms of the license agreement you entered
+  into with Quest Software Inc.
+
+  QUEST SOFTWARE INC. MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT
+  THE SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR IMPLIED,
+  INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR
+  NON-INFRINGEMENT. QUEST SOFTWARE SHALL NOT BE LIABLE FOR ANY
+  DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING
+  OR DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES.
+ -->
+
+<agent-definition xmlns="urn:X-quest.com:glue/agent/definition/1.9"
+                  name="URLMonitorAgent" 
+                  allow-asynchronous-access="true"
+                  ver="1.0.0">
+
+    <!-- Since this configuration was generated with version 5.6.2 of the 
+         developer's kit, it requires at least a matching version of FglAM -->
+    <host-version min="5.6.2"/>                   
+
+    <topology-types package="com.quest.agent.urlmonitor.samples">
+        <!-- Relative file names are resolved against the directory
+             that this file is in -->
+        <topology-file filename="../config/URLMonitorAgent-topology.xml"/>
+        <!-- Other topology files can be included here if necessary -->
+    </topology-types>
+
+    <agent name="URLMonitorAgent" package="com.quest.agent.urlmonitor" class-name="URLMonitorAgentImpl">
+        <!-- Collectors -->
+        <data-collection enable-cron="false">
+
+          <collector name="URL Collector" method-name="collectURLs" value="5" unit="minutes">
+              <!-- fast mode goes here -->
+          </collector>
+        </data-collection>
+
+
+<properties>
+	<group id="settings" label="Settings">
+		<secondary id="urlList" label="URL List" size="Unlimited">
+			<cols>
+				<string id="hostname" label="Hostname" size="Unlimited"
+					canBeBlank="false" />
+				<string id="url" label="URL" size="Unlimited" canBeBlank="false" />
+				<integer id="port" label="Port" default="80" canBeBlank="false" />
+			</cols>
+			<list id="defaultURLList">
+				<row>
+					<string id="hostname" value="www.baidu.com" />
+					<string id="url" value="/" />
+					<integer id="port" value="80" />
+				</row>
+			</list>
+		</secondary>
+	</group>
+</properties>
+	<simulator-sample name="AgentRoot" />
+
+
+
+
+
+
+    </agent>
+
+</agent-definition>
