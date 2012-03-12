@@ -22,7 +22,7 @@ import com.quest.glue.api.services.UnitService;
  * of the FglAM developer's kit.
  * 
  */
-@Generated(value = "FglAM Developer's Kit 5.6.2 (562-20110915-1606-b97)", date = "2012-03-12T14:29:07+0800")
+@Generated(value = "FglAM Developer's Kit 5.6.2 (562-20110915-1606-b97)", date = "2012-03-12T18:35:11+0800")
 public class HostService
     extends HostComponent
 {

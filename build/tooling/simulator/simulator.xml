@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<simulator-data xmlns="urn:X-quest.com:glue/simulator/1.2" xmlns:ns2="urn:X-quest.com:glue/simulator/1.1" xmlns:ns3="urn:X-quest.com:glue/simulator/1.0" package="URLMonitorAgent" version="1.0.0" config-namespace="URLMonitorAgent" build-id="local-build-20120312-1428">
+<simulator-data xmlns="urn:X-quest.com:glue/simulator/1.2" xmlns:ns2="urn:X-quest.com:glue/simulator/1.1" xmlns:ns3="urn:X-quest.com:glue/simulator/1.0" package="URLMonitorAgent" version="1.0.0" config-namespace="URLMonitorAgent" build-id="local-build-20120312-1835">
     <sim-agent name="URLMonitorAgent">
         <table name="AgentRoot" className="com.quest.agent.urlmonitor.samples.AgentRoot" isSampled="true">
             <identity name="name" type="java.lang.String" isComplex="false"/>

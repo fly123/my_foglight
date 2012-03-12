@@ -244,7 +244,8 @@
     <target name="run" depends="dist"
             description="Launches the Agent Harness app">
         <fglam:agent-harness agent-file="${urlmonitoragent.config.dir}/agent-definition.xml"
-                             gar-file="${urlmonitoragent.build.dir}/gar/${urlmonitoragent.agent-manifest.name}.gar"/>
+                             gar-file="${urlmonitoragent.build.dir}/gar/${urlmonitoragent.agent-manifest.name}.gar"
+        	jvm-args="-Dlog4j.configuration=file:log4j.properties -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"/>
     </target>
 
     <!-- Deploy the created cartridge to a running server -->

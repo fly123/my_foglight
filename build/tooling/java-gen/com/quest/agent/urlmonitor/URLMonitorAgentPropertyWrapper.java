@@ -28,7 +28,7 @@ import javax.annotation.Generated;
  * Wraps the defined Agent properties set in a typesafe implementation
  * that can be used when deploying on SPID.
  */
-@Generated(value = "FglAM Developer's Kit 5.6.2 (562-20110915-1606-b97)", date = "2012-03-12T14:29:06+0800")
+@Generated(value = "FglAM Developer's Kit 5.6.2 (562-20110915-1606-b97)", date = "2012-03-12T18:35:11+0800")
 public class URLMonitorAgentPropertyWrapper {
 
 private final ASPService3 mASPService;
